@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Texas Hold\'em Poker - On Web';
-  panelTitle = 'Login to Server';
 }
