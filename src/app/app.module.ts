@@ -11,8 +11,12 @@ import {AuthService} from "./auth.service";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
+import {PokerNavbarComponent} from './poker-navbar/poker-navbar.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-// import {AlertModule} from 'ngx-bootstrap';
+
+import {BsDropdownModule} from "ngx-bootstrap";
+
+
 
 @NgModule({
   declarations: [
@@ -22,14 +26,15 @@ import {DashboardComponent} from './dashboard/dashboard.component';
     SignUpComponent,
     LeaderboardComponent,
     StatisticsComponent,
-    DashboardComponent
+    PokerNavbarComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    // AlertModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
