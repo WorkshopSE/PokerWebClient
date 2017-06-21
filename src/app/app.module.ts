@@ -1,12 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { LogoutComponent } from './logout/logout.component';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { StatisticsComponent } from './statistics/statistics.component';
+import {AppComponent} from './app.component';
+import {LogoutComponent} from './logout/logout.component';
+import {LoginComponent} from './login/login.component';
+import {SignUpComponent} from './sign-up/sign-up.component';
+import {LeaderboardComponent} from './leaderboard/leaderboard.component';
+import {StatisticsComponent} from './statistics/statistics.component';
+import {AuthService} from "./auth.service";
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import {AppRoutingModule} from "./app-routing/app-routing.module";
+import {DashboardComponent} from './dashboard/dashboard.component';
+// import {AlertModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,12 +21,18 @@ import { StatisticsComponent } from './statistics/statistics.component';
     LoginComponent,
     SignUpComponent,
     LeaderboardComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    AppRoutingModule,
+    // AlertModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
