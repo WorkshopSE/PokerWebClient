@@ -9,5 +9,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('app', {
       url: '/',
       component: 'app'
+    })
+    .state('dashboard', {
+      
     });
 }
