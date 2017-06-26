@@ -42,7 +42,7 @@
           <ul class="nav navbar-nav">
 
             <li ng-repeat="item in menu" ng-class="{active: item.rout == menuActive}">
-              <a ng-href="item.rout">{{item.label}}</a>
+              <a href="{{::item.route}}">{{item.label}}</a>
             </li>
 
 
@@ -82,8 +82,8 @@
         <ul>
           <li>Idan Izicovich</li>
           <li>Gal Wainer</li>
-          <li>Tomer Amdur</li>
           <li>Asaf Ben Aharon</li>
+          <li>Tomer Amdur</li>
           <li>Ariel Tobiana</li>
         </ul>
       </p>

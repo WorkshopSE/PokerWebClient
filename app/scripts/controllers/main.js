@@ -34,7 +34,7 @@ angular.module('pokerWebClientApp')
 
     $rootScope.menu = [{
         label: 'Login',
-        route: '/'
+        route: '#/login'
       },
       {
         label: 'Statistics',
@@ -43,13 +43,14 @@ angular.module('pokerWebClientApp')
       {
         label: 'Leaderboard',
         route: '#/leaderboard'
-      }
-    ]
+      },
+    ];
 
     $rootScope.menuActive = '/';
 
     $rootScope.$on('$routeChangeSuccess', function (e, curr, prev) {
       $rootScope.menuActive = $location.path();
+      $log.debug("user:", $rootScope.user)
     });
 
     /* log functions: */

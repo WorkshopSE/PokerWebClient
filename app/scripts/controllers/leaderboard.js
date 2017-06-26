@@ -8,10 +8,8 @@
  * Controller of the pokerWebClientApp
  */
 angular.module('pokerWebClientApp')
-  .controller('leaderboardCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LeaderboardCtrl', function () {
+    
+
+
   });

@@ -30,19 +30,19 @@ angular
         controllerAs: 'about'
       })
       .when('/statistics', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        templateUrl: 'views/statistics.html',
+        controller: 'StatisticsCtrl',
+        controllerAs: 'statistics'
       })
       .when('/leaderboard', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        templateUrl: 'views/leaderboard.html',
+        controller: 'LeaderboardCtrl',
+        controllerAs: 'leaderboard'
       })
       .when('/login', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .otherwise({
         redirectTo: '/'
