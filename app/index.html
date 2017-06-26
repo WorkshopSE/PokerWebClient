@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Poker Web Client</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+
+<body ng-app="pokerWebClientApp">
+  <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <div class="header">
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          <a class="navbar-brand" href="#/">Texas Hold'em Poker</a>
+        </div>
+
+        <div class="collapse navbar-collapse " id="js-navbar-collapse">
+
+          <ul class="nav navbar-nav">
+
+            <li ng-repeat="item in menu" ng-class="{active: item.rout == menuActive}">
+              <a href="{{::item.route}}">{{item.label}}</a>
+            </li>
+
+
+            <!--<li ng-class="{}"><a href="#/Statistics">Statistics</a></li>
+            <li ng-class="{active: test2}"><a href="#/Leaderboard">Leaderboard</a></li>
+            <li ng-class="{}"><a href="#/Leaderboard">menuActive</a></li>
+            <li><a ng-href=""></a></li>-->
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" ng-if="user.isConnected">
+            <li><p class="navbar-text">Hello</li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div ng-view=""></div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <p><span class="glyphicon glyphicon-education"></span> Design and Created by Idan Izicovich, by Texas Hold'em development team:</p>
+      <p>
+        <ul>
+          <li>Idan Izicovich</li>
+          <li>Gal Wainer</li>
+          <li>Asaf Ben Aharon</li>
+          <li>Tomer Amdur</li>
+          <li>Ariel Tobiana</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    ! function (A, n, g, u, l, a, r) {
+      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+          (A[l].q = A[l].q || []).push(arguments)
+        }, A[l].l = +new Date, a = n.createElement(g),
+        r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <script src="scripts/controllers/login.js"></script>
+  <script src="scripts/controllers/leaderboard.js"></script>
+  <script src="scripts/controllers/statistics.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>
