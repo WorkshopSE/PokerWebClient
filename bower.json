@@ -1,6 +1,6 @@
 {
   "name": "poker-web-client",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "dependencies": {
     "angular": "#1.5.8",
     "bootstrap-sass-official": "^3.2.0",
