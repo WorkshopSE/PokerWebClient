@@ -26,7 +26,7 @@ angular.module('pokerWebClientApp')
     $rootScope.user = {
       isConnected: false,
       name: null,
-      key: null,
+      securityKey: null,
       players: [],
       // TODO complete...
     };
