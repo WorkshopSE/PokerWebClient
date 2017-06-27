@@ -16,9 +16,6 @@ angular.module('pokerWebClientApp')
       $location.path('/');
     }
 
-    // stub
-
-    //stub
     if ($rootScope.user != null) {
       auth.getUsers($rootScope.user).then(function (response) {
         if (response.Users != null || response.Users.length > 0) {
@@ -37,6 +34,7 @@ angular.module('pokerWebClientApp')
       });
     }
 
+    // Stub
     // [
     //   {
     //     '#' : 1,

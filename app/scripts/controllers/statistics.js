@@ -8,9 +8,20 @@
  * Controller of the pokerWebClientApp
  */
 angular.module('pokerWebClientApp')
-  .controller('StatisticsCtrl', function ($location, $rootScope) {
+  .controller('StatisticsCtrl', function ($location, $rootScope, auth, $log) {
 
-    if ($rootScope.user === undefined || !$rootScope.user.isConnected) {
+    var statistics = this;
+
+    if ($rootScope.user == null || !$rootScope.user.isConnected) {
       $location.path('/');
+    } else {
+      auth.getStatistics($rootScope.user)
+        .then(function (result) {
+          $log.info("statistics result:", result);
+          statistics.WinRateStatistics = result.WinRateStatistics;
+          statistics.GrossProfitWinRateStatistics = result.GrossProfitWinRateStatistics;
+        });
     }
+
+
   });

@@ -65,8 +65,19 @@ angular.module('pokerWebClientApp')
             SecurityKey: user.securityKey
           }
         );
+      },
+
+      getStatistics: function (user){
+        return httpCall(
+          '/history',
+          '/GetStatistics',
+          {
+            UserName: user.name,
+            SecurityKey: user.securityKey
+          }
+        )
       }
-      
+
     };
 
     function httpCall(controller, action, request) {
