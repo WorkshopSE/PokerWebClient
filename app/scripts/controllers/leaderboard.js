@@ -28,7 +28,7 @@ angular.module('pokerWebClientApp')
             'GrossLosses',
             'CashGain',
             'GamesPlayed'
-          ]
+          ];
         }
         $log.info("users: ", response.Users);
       });

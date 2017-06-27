@@ -8,7 +8,7 @@
  * Controller of the pokerWebClientApp
  */
 angular.module('pokerWebClientApp')
-  .controller('MainCtrl', function ($rootScope, $scope, $location, $log, $cookies, auth, $route) {
+  .controller('MainCtrl', function ($rootScope, $scope, $location, $log, $cookies, auth) {
 
     // this.awesomeThings = [
     //   'HTML5 Boilerplate',
@@ -18,7 +18,7 @@ angular.module('pokerWebClientApp')
 
 
     // init controller as:
-    var main = this;
+    // var main = this;
 
     // root scope data init:
     if ($rootScope.data === undefined) {
