@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div ng-if="!user.isConnected" class="jumbotron">
 
   <h1>Poker Web Client</h1>
 
@@ -6,6 +6,10 @@
 
   <img class="img-responsive" src="./images/fuller-house-exposing-high-end-poker-cheating-devices.jpg" />
 
-  <span ng-if="!user.isConnected"><b>Hello Guest!</b> Go to "login" first :)</span>
+  <span><b>Hello Guest!</b> Go to "login" first :)</span>
 
+</div>
+
+<div class="container" ng-if="user.isConnected">
+  <img class="img-responsive" src="./images/1920X1080_menu_bg.jpg" />
 </div>

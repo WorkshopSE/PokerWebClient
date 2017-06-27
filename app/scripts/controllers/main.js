@@ -21,15 +21,19 @@ angular.module('pokerWebClientApp')
     var main = this;
 
     // root scope data init:
-    $rootScope.data = {};
+    if ($rootScope.data === undefined) {
+      $rootScope.data = {};
+    }
 
-    $rootScope.user = {
-      isConnected: false,
-      name: null,
-      securityKey: null,
-      players: [],
-      // TODO complete...
-    };
+    if ($rootScope.user === undefined) {
+      $rootScope.user = {
+        isConnected: false,
+        name: null,
+        securityKey: null,
+        players: [],
+        // TODO complete...
+      };
+    }
 
 
     $rootScope.menu = [{
@@ -50,7 +54,10 @@ angular.module('pokerWebClientApp')
 
     $rootScope.$on('$routeChangeSuccess', function (e, curr, prev) {
       $rootScope.menuActive = $location.path();
-      $log.debug("user:", $rootScope.user)
+      $log.debug("user:", $rootScope.user);
+      $log.debug('e:', e);
+      $log.debug('curr:', curr);
+      $log.debug('prev:', prev);
     });
 
     /* log functions: */
