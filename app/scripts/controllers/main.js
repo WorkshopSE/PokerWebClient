@@ -8,7 +8,7 @@
  * Controller of the pokerWebClientApp
  */
 angular.module('pokerWebClientApp')
-  .controller('MainCtrl', function ($rootScope, $scope, $location, $log) {
+  .controller('MainCtrl', function ($rootScope, $scope, $location, $log, $cookies, auth, $route) {
 
     // this.awesomeThings = [
     //   'HTML5 Boilerplate',
@@ -21,15 +21,44 @@ angular.module('pokerWebClientApp')
     var main = this;
 
     // root scope data init:
-    $rootScope.data = {};
+    if ($rootScope.data === undefined) {
+      $rootScope.data = {};
+    }
 
-    $rootScope.user = {
-      isConnected: false,
-      name: null,
-      key: null,
-      players: [],
-      // TODO complete...
-    };
+    // root scope functions init:
+    if ($rootScope.func == undefined) {
+      $rootScope.func = {
+
+        logout: function (user) {
+          auth.logout(user)
+            .then(function () {
+              $cookies.remove('pokerUser');
+              $log.info("cookie removed");
+              $rootScope.user.isConnected = false;
+              $location.path('/login');
+            });
+        }
+
+      };
+    }
+
+
+    if ($rootScope.user === undefined) {
+
+      $rootScope.user = $cookies.getObject('pokerUser');
+
+      $log.warn("$cookie = ", $rootScope.user);
+
+      if ($rootScope.user == null) {
+        $rootScope.user = {
+          isConnected: false,
+          name: null,
+          securityKey: null,
+          players: [],
+          // TODO complete...
+        };
+      }
+    }
 
 
     $rootScope.menu = [{
@@ -50,7 +79,10 @@ angular.module('pokerWebClientApp')
 
     $rootScope.$on('$routeChangeSuccess', function (e, curr, prev) {
       $rootScope.menuActive = $location.path();
-      $log.debug("user:", $rootScope.user)
+      $log.debug("user:", $rootScope.user);
+      $log.debug('e:', e);
+      $log.debug('curr:', curr);
+      $log.debug('prev:', prev);
     });
 
     /* log functions: */

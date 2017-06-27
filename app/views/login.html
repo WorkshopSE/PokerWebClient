@@ -1,17 +1,24 @@
+<!--<p>{{login.remember}}</p>-->
+<!--<p>{{login.inputUserName}}</p>-->
+<!--<p>{{login.inputPassword}}</p>-->
+<!--Tamplete from: https://getbootstrap.com/examples/signin/ -->
 <div class="container">
 
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Please log in</h2>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+<span class="label label-danger">{{login.errorMessage}}</span>
+
+  <form class="form-signin" ng-submit="login.submit()">
+    <h2 class="form-signin-heading">Log In To Server</h2>
+    <label for="inputUserName" class="sr-only">User Name</label>
+    <input ng-model="login.inputUserName" type="text" id="inputUserName" class="form-control" placeholder="User Name" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input ng-model="login.inputPassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <div class="checkbox">
       <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+        <input ng-model="login.remember" type="checkbox" value="remember-me"> Remember me
+      </label>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </div>
   </form>
 
-  </div>
-  <!-- /container -->
+
+</div>

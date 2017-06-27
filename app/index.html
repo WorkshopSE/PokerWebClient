@@ -41,7 +41,7 @@
 
           <ul class="nav navbar-nav">
 
-            <li ng-repeat="item in menu" ng-class="{active: item.rout == menuActive}">
+            <li ng-repeat="item in menu" ng-class="{active: item.route == '#' + menuActive}">
               <a href="{{::item.route}}">{{item.label}}</a>
             </li>
 
@@ -53,15 +53,13 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right" ng-if="user.isConnected">
-            <li><p class="navbar-text">Hello</li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}} <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello {{user.name}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <!-- TODO logout -->
+                <li><a ng-click="func.logout(user)">Logout</a></li>
+                <!--<li role="separator" class="divider"></li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
               </ul>
             </li>
           </ul>
@@ -121,6 +119,7 @@
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
+  <script src="scripts/services/auth.js"></script>  
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/about.js"></script>
   <script src="scripts/controllers/login.js"></script>
