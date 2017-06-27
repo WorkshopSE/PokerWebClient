@@ -40,6 +40,12 @@ angular.module('pokerWebClientApp')
             login.fail = false;
             $log.info($rootScope.user);
 
+            // remember me!
+            if (login.remember === true) {
+              $cookies.putObject('pokerUser', $rootScope.user);
+              $log.info('$cookies.putObject', $rootScope.user);
+            }
+
             $location.path('/');
 
           } else {
@@ -48,9 +54,7 @@ angular.module('pokerWebClientApp')
           }
         });
 
-      if (login.remember === true) {
-        $cookies.putObject('pokerUser', $rootScope.user);
-      }
+
     };
 
   });

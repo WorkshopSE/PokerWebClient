@@ -8,10 +8,9 @@
  * Controller of the pokerWebClientApp
  */
 angular.module('pokerWebClientApp')
-  .controller('StatisticsCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('StatisticsCtrl', function ($location, $rootScope) {
+
+    if ($rootScope.user === undefined || !$rootScope.user.isConnected) {
+      $location.path('/');
+    }
   });

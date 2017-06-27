@@ -15,8 +15,9 @@ angular.module('pokerWebClientApp')
      * Server URL
      * - will change on deployment
      */
-    var baseURL = 'http://localhost:9000/api';
-    var controller = '/authentication';
+
+    var baseURL = 'http://localhost:9000/api'; // dev
+    // var baseURL = 'http://azure.....poker/'; // prod
 
     /**
      * Authentication Service Methods
@@ -36,34 +37,58 @@ angular.module('pokerWebClientApp')
           password
         };
 
-        return $http({
-            method: 'POST',
-            url: baseURL + controller + '/login',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            data: angular.toJson(request)
-          })
-          .then(function (response) {
-            $log.info(response);
-            return response.data;
-          })
-          .catch(function (response) {
-            $log.error("http fail! response: ", response);
-            return {
-              Success: false,
-              ErrorMessage: 'connection to server fail, please check your internet connection!'
-            };
-          });
+        return httpCall('/authentication', '/login', request);
       },
 
       logout: function (user) {
-        // TODO
+        return httpCall(
+          '/authentication',
+          '/logout',
+          {
+            UserName: user.name,
+            SecurityKey: user.securityKey
+          }
+        );
+        
       },
 
       signIn: function (username, password, deposit) {
         // TODO
+      },
+
+      getUsers: function (user) {
+        return httpCall(
+          '/history',
+          '/GetAllUsers',
+          {
+            UserName: user.name,
+            SecurityKey: user.securityKey
+          }
+        );
       }
+      
     };
+
+    function httpCall(controller, action, request) {
+      return $http({
+          method: 'POST',
+          url: baseURL + controller + action,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data: angular.toJson(request)
+        })
+        .then(function (response) {
+          $log.info(response);
+          return response.data;
+        })
+        .catch(function (response) {
+          $log.error("http fail! response: ", response);
+          return {
+            Success: false,
+            ErrorMessage: 'connection to server fail, please check your internet connection!'
+          };
+        });
+    }
 
   });
