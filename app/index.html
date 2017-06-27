@@ -41,7 +41,7 @@
 
           <ul class="nav navbar-nav">
 
-            <li ng-repeat="item in menu" ng-class="{active: item.rout == menuActive}">
+            <li ng-repeat="item in menu" ng-class="{active: item.route == '#' + menuActive}">
               <a href="{{::item.route}}">{{item.label}}</a>
             </li>
 

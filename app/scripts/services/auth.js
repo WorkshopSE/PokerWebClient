@@ -44,13 +44,16 @@ angular.module('pokerWebClientApp')
             },
             data: angular.toJson(request)
           })
-          .then(function(response){
+          .then(function (response) {
             $log.info(response);
             return response.data;
           })
-          .catch(function(response){
-            $log.error(response);
-            return response.data;
+          .catch(function (response) {
+            $log.error("http fail! response: ", response);
+            return {
+              Success: false,
+              ErrorMessage: 'connection to server fail, please check your internet connection!'
+            };
           });
       },
 
